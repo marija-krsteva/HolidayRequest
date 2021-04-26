@@ -54,20 +54,6 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     /**
-     * Called before removing an user, to remove all relations
-     */
-    public static function boot()
-    {
-        parent::boot();
-
-        static::deleting(function ($user) { // before delete() method call this
-            $user->managers()->delete();
-            $user->employees()->delete();
-            $user->holidayRequests()->delete();
-        });
-    }
-
-    /**
      * Defining the roles
      */
     private const ROLES = [

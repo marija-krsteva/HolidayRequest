@@ -23,12 +23,12 @@
 
                                         <a href="{{route('holidayRequests.edit',[$request->id])}}" class="btn btn-warning"><i class="bi bi-pencil-square" role="img" aria-label="Edit"></i></a>
                                         <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteRequest">
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteRequest{{$request->id}}">
                                             <i class="bi bi-x-square" role="img" aria-label="Delete"></i>
                                         </button>
 
                                         <!-- Modal -->
-                                        <div class="modal fade" id="deleteRequest" tabindex="-1" role="dialog" aria-labelledby="deleteRequestLabel" aria-hidden="true">
+                                        <div class="modal fade" id="deleteRequest{{$request->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteRequestLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -42,7 +42,7 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('No')}}</button>
-                                                        <form method="POST" action="{{ route('holidayRequests.destroy',[$request->id])}} }}">
+                                                        <form method="POST" action="{{ route('holidayRequests.destroy',[$request->id]) }}">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit" class="btn btn-danger">

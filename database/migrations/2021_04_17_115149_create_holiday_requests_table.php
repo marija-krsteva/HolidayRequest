@@ -22,7 +22,7 @@ class CreateHolidayRequestsTable extends Migration
             $table->dateTime('start_date');
             $table->dateTime('end_date');
             $table->boolean('is_send')->default(0);
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

@@ -63,6 +63,14 @@ class UserController extends Controller
             'role' => 'required|in:' . implode(',', User::getRoles()),
         ]);
 
+        if($user->role !== $request->role) {
+            if($user->managers->isNotEmpty()) {
+                $user->managers()->detach();
+            } elseif ($user->employees->isNotEmpty()) {
+                $user->employees()->detach();
+            }
+        }
+
         $user->update($request->all());
         return redirect('/home');
     }

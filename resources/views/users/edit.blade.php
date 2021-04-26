@@ -53,8 +53,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            @if($is_admin_current_user)
-                                <div class="form-group row">
+                                <div class="form-group row @if(!$is_admin_current_user) d-none @endif" >
                                     <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}<span class="text-danger">*</span></label>
 
                                     <div class="col-md-6">
@@ -67,7 +66,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                <div class="form-group row @if(!$is_admin_current_user) d-none @endif">
                                     <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Role') }}<span class="text-danger">*</span></label>
 
                                     <div class="col-md-6">
@@ -83,7 +82,6 @@
                                         @enderror
                                     </div>
                                 </div>
-                            @endif
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">

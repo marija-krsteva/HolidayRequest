@@ -34,12 +34,12 @@
 
                                         <a href="{{route('users.edit',[$user->id])}}" class="btn btn-warning"><i class="bi bi-pencil-square" role="img" aria-label="Edit"></i></a>
                                         <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteUser">
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteUser{{$user->id}}">
                                             <i class="bi bi-x-square" role="img" aria-label="Delete"></i>
                                         </button>
 
                                         <!-- Modal -->
-                                        <div class="modal fade" id="deleteUser" tabindex="-1" role="dialog" aria-labelledby="deleteUserLabel" aria-hidden="true">
+                                        <div class="modal fade" id="deleteUser{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteUserLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -53,7 +53,7 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('No')}}</button>
-                                                        <form method="POST" action="{{ route('users.destroy',[$user->id])}} }}">
+                                                        <form method="POST" action="{{ route('users.destroy',[$user->id]) }}">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit" class="btn btn-danger">

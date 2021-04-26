@@ -15,8 +15,8 @@ class CreateEmployeeManagerTable extends Migration
     {
         Schema::create('employee_manager', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('employee_id')->constrained('users');
-            $table->foreignId('manager_id')->constrained('users');
+            $table->foreignId('employee_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();;
+            $table->foreignId('manager_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();;
             $table->timestamps();
         });
     }
